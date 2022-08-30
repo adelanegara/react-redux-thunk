@@ -1,39 +1,32 @@
 {
-  "companyList": [
-    {
-      "no": 1,
-      "name": "Apple Inc",
-      "idCode": "AAPL"
-    },
-    {
-      "no": 2,
-      "name": "Microsoft Corporation",
-      "idCode": "MSFT"
-    },
-    {
-      "no": 3,
-      "name": "GOOGLE",
-      "idCode": "GOOG"
-    },
-    {
-      "no": 4,
-      "name": "TELSA",
-      "idCode": "TSLA"
-    },
-    {
-      "no": 5,
-      "name": "AMAZON",
-      "idCode": "AMZN"
-    }
-  ],
-  "orderList": [
+  "user": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "address": "Singapore",
+      "name": "Adele",
+      "email": "adele@princess.com",
+      "contact": "98765178"
+    },
+    {
+      "id": 2,
+      "address": "Australia",
+      "name": "Indira",
+      "email": "indori@gmail.com",
+      "contact": "34245613"
+    },
+    {
+      "id": 3,
+      "address": "Norway",
+      "name": "Evita",
+      "email": "evita@gmail.com",
+      "contact": "87654513"
+    },
+    {
+      "id": 4,
+      "address": "South Korea",
+      "name": "Tifany",
+      "email": "tifany@gmail.com",
+      "contact": "65463221"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
