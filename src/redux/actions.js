@@ -1,9 +1,9 @@
 import axios from "axios";
 import { config } from "../config";
 
-const getUsers = (users) => ({
+export const getUsers = (users) => ({
   type: "GET_USERS",
-  PAYLOAD: users,
+  payload: users,
 });
 
 const userDeleted = () => ({

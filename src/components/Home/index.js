@@ -7,17 +7,22 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useDispatch, useSelector } from "react-redux";
-import { loadUsers } from "../../redux/actions";
 import { config } from "../../config";
+import { getUsers } from "../../redux/actions";
+import axios from "axios";
 
 const Home = () => {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.data);
 
   useEffect(() => {
-    dispatch(loadUsers());
+    axios
+      .get(config.url_account)
+      .then((resp) => {
+        dispatch(getUsers(resp.data));
+      })
+      .catch((error) => console.log(error));
   }, []);
-  console.log(config.base_url);
   return (
     <div>
       <h2>Home </h2>
@@ -43,10 +48,10 @@ const Home = () => {
                   <TableCell component="th" scope="row">
                     {user.name}
                   </TableCell>
-                  <TableCell align="right">{user.contact}</TableCell>
-                  <TableCell align="right">{user.address}</TableCell>
-                  <TableCell align="right">{user.email}</TableCell>
-                  <TableCell align="right">lala</TableCell>
+                  <TableCell align="center">{user.contact}</TableCell>
+                  <TableCell align="center">{user.address}</TableCell>
+                  <TableCell align="center">{user.email}</TableCell>
+                  <TableCell align="center">lala</TableCell>
                 </TableRow>
               ))}
           </TableBody>
