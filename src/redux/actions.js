@@ -25,10 +25,10 @@ export const loadUsers = () => {
 export const deleteUser = (id) => {
   return function (dispatch) {
     axios
-      .delete(config.url_account)
+      .delete(config.url_account / id)
       .then((resp) => {
         console.log("resp", resp);
-        dispatch(userDeleted(resp.data));
+        dispatch(userDeleted());
       })
       .catch((error) => console.log(error));
   };
