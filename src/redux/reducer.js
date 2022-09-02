@@ -3,7 +3,7 @@
 const initialState = {
   users: [],
   user: {},
-  loading: false,
+  loading: true,
 };
 
 const userReducers = (state = initialState, action) => {
@@ -15,7 +15,14 @@ const userReducers = (state = initialState, action) => {
         loading: false,
       };
     case "DELETE_USER":
-      return {};
+      const newUsers = state.users.filter((item) => {
+        return item.id !== action.id;
+      });
+      console.log(state.users, newUsers);
+      return {
+        ...state,
+        users: newUsers,
+      };
     default:
       return state;
   }

@@ -9,30 +9,32 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import { useDispatch, useSelector } from "react-redux";
-import { config } from "../../config";
-import { deleteUser, getUsers } from "../../redux/actions";
-import axios from "axios";
+import { loadUsers, deleteUser } from "../../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.data);
+
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure to delete it?")) {
+    if (window.confirm("Are you sure want to delete this user?")) {
       dispatch(deleteUser(id));
     }
   };
 
   useEffect(() => {
-    axios
-      .get(config.url_account)
-      .then((resp) => {
-        dispatch(getUsers(resp.data));
-      })
-      .catch((error) => console.log(error));
+    dispatch(loadUsers());
   }, []);
+
   return (
     <div>
       <h2>Home </h2>
+      <div className="addContainer">
+        <Button variant="contained" onClick={() => navigate("/add")}>
+          Add User
+        </Button>
+      </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -47,7 +49,7 @@ const Home = () => {
           </TableHead>
           <TableBody>
             {users &&
-              users.map((user, index) => (
+              users?.map((user, index) => (
                 <TableRow
                   key={user.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

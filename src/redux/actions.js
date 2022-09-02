@@ -1,21 +1,21 @@
 import axios from "axios";
 import { config } from "../config";
 
-export const getUsers = (users) => ({
+const getUsers = (users) => ({
   type: "GET_USERS",
   payload: users,
 });
 
-const userDeleted = () => ({
+const userDeleted = (id) => ({
   type: "DELETE_USER",
+  id,
 });
 
 export const loadUsers = () => {
-  return function (dispatch) {
+  return (dispatch) => {
     axios
       .get(config.url_account)
       .then((resp) => {
-        console.log("resp", resp);
         dispatch(getUsers(resp.data));
       })
       .catch((error) => console.log(error));
@@ -23,13 +23,7 @@ export const loadUsers = () => {
 };
 
 export const deleteUser = (id) => {
-  return function (dispatch) {
-    axios
-      .delete(config.url_account / id)
-      .then((resp) => {
-        console.log("resp", resp);
-        dispatch(userDeleted());
-      })
-      .catch((error) => console.log(error));
+  return (dispatch) => {
+    dispatch(userDeleted(id));
   };
 };
