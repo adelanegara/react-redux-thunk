@@ -56,18 +56,18 @@ const AddUser = () => {
         <TextField
           id="standard-basic"
           label="Name"
+          name="name"
           value={name}
           type="text"
-          variant="standard"
           onChange={handleInputChange}
         />
         <br />
         <TextField
           id="standard-basic"
           label="Address"
+          name="address"
           value={address}
           type="text"
-          variant="standard"
           onChange={handleInputChange}
         />
         <br />
@@ -75,8 +75,8 @@ const AddUser = () => {
           id="standard-basic"
           label="Email"
           value={email}
+          name="email"
           type="email"
-          variant="standard"
           onChange={handleInputChange}
         />
         <br />
@@ -84,8 +84,8 @@ const AddUser = () => {
           id="standard-basic"
           label="Contact"
           value={contact}
+          name="contact"
           type="number"
-          variant="standard"
           onChange={handleInputChange}
         />
       </Box>
