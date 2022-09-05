@@ -29,9 +29,13 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Home </h2>
+      <h1>Home </h1>
       <div className="addContainer">
-        <Button variant="contained" onClick={() => navigate("/add")}>
+        <Button
+          style={{ marginBottom: "50px" }}
+          variant="contained"
+          onClick={() => navigate("/add")}
+        >
           Add User
         </Button>
       </div>

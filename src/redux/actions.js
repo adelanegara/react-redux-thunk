@@ -11,6 +11,10 @@ const userDeleted = (id) => ({
   id,
 });
 
+const userAdded = () => ({
+  type: "ADD_USER",
+});
+
 export const loadUsers = () => {
   return (dispatch) => {
     axios
@@ -25,5 +29,17 @@ export const loadUsers = () => {
 export const deleteUser = (id) => {
   return (dispatch) => {
     dispatch(userDeleted(id));
+  };
+};
+
+export const addUser = (user) => {
+  return (dispatch) => {
+    axios
+      .post(config.url_account, user)
+      .then((resp) => {
+        console.log("resp", resp);
+        dispatch(userAdded());
+      })
+      .catch((error) => console.log(error));
   };
 };

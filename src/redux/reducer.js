@@ -18,11 +18,11 @@ const userReducers = (state = initialState, action) => {
       const newUsers = state.users.filter((item) => {
         return item.id !== action.id;
       });
-      console.log(state.users, newUsers);
       return {
         ...state,
         users: newUsers,
       };
+    case "ADD_USER":
     default:
       return state;
   }
