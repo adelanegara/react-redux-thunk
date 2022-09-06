@@ -15,18 +15,25 @@
       "contact": "34245613"
     },
     {
-      "id": 3,
-      "address": "Norway",
-      "name": "Evita",
-      "email": "evita@gmail.com",
-      "contact": "87654513"
-    },
-    {
       "id": 4,
       "address": "South Korea",
       "name": "Tifany",
       "email": "tifany@gmail.com",
       "contact": "65463221 "
+    },
+    {
+      "name": "Evita",
+      "address": "Oslo",
+      "email": "evita@gmail.com",
+      "contact": "12344321",
+      "id": 5
+    },
+    {
+      "name": "Dan",
+      "address": "Sweden",
+      "email": "dan@se",
+      "contact": "543212345",
+      "id": 6
     }
   ]
 }

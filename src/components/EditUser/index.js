@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Box, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addUser } from "../../redux/actions";
+import { editUser } from "../../redux/actions";
 
-const AddUser = () => {
+const EditUser = () => {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState();
@@ -14,6 +15,9 @@ const AddUser = () => {
     email: "",
     contact: "",
   });
+  useEffect(() => {
+    dispatch(editUser(id));
+  }, []);
 
   const { name, address, email, contact } = state;
 
@@ -27,7 +31,7 @@ const AddUser = () => {
     if (!name || !address || !email || !contact) {
       setError("Please input all the field!");
     } else {
-      dispatch(addUser(state));
+      dispatch(editUser(state));
       navigate("/");
       setError("");
     }
@@ -44,7 +48,7 @@ const AddUser = () => {
         Back
       </Button>
       {error && <h3 style={{ color: "red" }}> {error} </h3>}
-      <h1 style={{ marginBottom: "50px" }}>Add User</h1>
+      <h1 style={{ marginBottom: "50px" }}>Edit User</h1>
       <Box
         component="form"
         sx={{
@@ -96,4 +100,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;

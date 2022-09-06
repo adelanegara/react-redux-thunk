@@ -15,6 +15,11 @@ const userAdded = () => ({
   type: "ADD_USER",
 });
 
+const userEdited = (id) => ({
+  type: "EDIT_USER",
+  id,
+});
+
 export const loadUsers = () => {
   return (dispatch) => {
     axios
@@ -28,7 +33,12 @@ export const loadUsers = () => {
 
 export const deleteUser = (id) => {
   return (dispatch) => {
-    dispatch(userDeleted(id));
+    axios
+      .delete(`${config.url_account}/${id}`)
+      .then(() => {
+        dispatch(userDeleted(id));
+      })
+      .catch((error) => console.log(error));
   };
 };
 
@@ -36,9 +46,19 @@ export const addUser = (user) => {
   return (dispatch) => {
     axios
       .post(config.url_account, user)
-      .then((resp) => {
-        console.log("resp", resp);
+      .then(() => {
         dispatch(userAdded());
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+export const editUser = (id) => {
+  return (dispatch) => {
+    axios
+      .get(`${config.url_account}/${id}`)
+      .then((resp) => {
+        dispatch(userEdited(resp.data));
       })
       .catch((error) => console.log(error));
   };

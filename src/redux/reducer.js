@@ -22,6 +22,12 @@ const userReducers = (state = initialState, action) => {
         ...state,
         users: newUsers,
       };
+    case "EDIT_USER":
+      return {
+        ...state,
+        users: action.payload,
+        loading: false,
+      };
     case "ADD_USER":
     default:
       return state;

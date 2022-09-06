@@ -77,7 +77,9 @@ const Home = () => {
                       >
                         DELETE
                       </Button>
-                      <Button>EDIT</Button>
+                      <Button onClick={() => navigate(`/edit/${user.id}`)}>
+                        EDIT
+                      </Button>
                     </ButtonGroup>
                   </TableCell>
                 </TableRow>
