@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getUserById } from "../../redux/actions";
 import { Button, Box, TextField } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -15,8 +16,9 @@ const EditUser = () => {
     email: "",
     contact: "",
   });
+
   useEffect(() => {
-    dispatch(editUser(id));
+    getUserById(id, setState);
   }, []);
 
   const { name, address, email, contact } = state;
@@ -31,7 +33,7 @@ const EditUser = () => {
     if (!name || !address || !email || !contact) {
       setError("Please input all the field!");
     } else {
-      dispatch(editUser(state));
+      dispatch(editUser(id, state));
       navigate("/");
       setError("");
     }

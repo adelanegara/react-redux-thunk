@@ -53,13 +53,25 @@ export const addUser = (user) => {
   };
 };
 
-export const editUser = (id) => {
-  return (dispatch) => {
+export const editUser = (id, user) => {
+  return () => {
     axios
-      .get(`${config.url_account}/${id}`)
-      .then((resp) => {
-        dispatch(userEdited(resp.data));
-      })
+      .put(`${config.url_account}/${id}`, user)
       .catch((error) => console.log(error));
   };
+};
+
+export const getUserById = (id, setState) => {
+  axios
+    .get(`${config.url_account}/${id}`)
+    .then((resp) => {
+      const { name, address, email, contact } = resp.data;
+      setState({
+        name,
+        address,
+        email,
+        contact,
+      });
+    })
+    .catch((error) => console.log(error));
 };

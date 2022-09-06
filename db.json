@@ -1,25 +1,18 @@
 {
   "user": [
     {
-      "id": 1,
-      "address": "Singapore",
-      "name": "Adele",
-      "email": "adele@princess.com",
-      "contact": "98765178"
-    },
-    {
-      "id": 2,
+      "name": "Ind",
       "address": "Australia",
-      "name": "Indira",
       "email": "indori@gmail.com",
-      "contact": "34245613"
+      "contact": "34245613",
+      "id": 2
     },
     {
-      "id": 4,
-      "address": "South Korea",
       "name": "Tifany",
+      "address": "Melb",
       "email": "tifany@gmail.com",
-      "contact": "65463221 "
+      "contact": "234",
+      "id": 4
     },
     {
       "name": "Evita",

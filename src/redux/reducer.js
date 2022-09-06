@@ -1,5 +1,3 @@
-// import * as types from "./actionType";
-
 const initialState = {
   users: [],
   user: {},
@@ -25,10 +23,14 @@ const userReducers = (state = initialState, action) => {
     case "EDIT_USER":
       return {
         ...state,
-        users: action.payload,
+        user: action.payload,
         loading: false,
       };
     case "ADD_USER":
+      return {
+        ...state,
+        loading: false,
+      };
     default:
       return state;
   }
