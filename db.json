@@ -4,11 +4,11 @@
       "name": "Ind",
       "address": "Australia",
       "email": "indori@gmail.com",
-      "contact": "34245613",
+      "contact": "34245",
       "id": 2
     },
     {
-      "name": "Tifany",
+      "name": "Ti",
       "address": "Melb",
       "email": "tifany@gmail.com",
       "contact": "234",
@@ -27,6 +27,13 @@
       "email": "dan@se",
       "contact": "543212345",
       "id": 6
+    },
+    {
+      "name": "Oli",
+      "address": "LA",
+      "email": "oli@gmail.com",
+      "contact": "45678987",
+      "id": 7
     }
   ]
 }
