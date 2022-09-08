@@ -15,10 +15,10 @@ const userAdded = () => ({
   type: "ADD_USER",
 });
 
-const userEdited = (id) => ({
-  type: "EDIT_USER",
-  id,
-});
+// const userEdited = (id) => ({
+//   type: "EDIT_USER",
+//   id,
+// });
 
 export const loadUsers = () => {
   return (dispatch) => {

@@ -20,12 +20,7 @@ const userReducers = (state = initialState, action) => {
         ...state,
         users: newUsers,
       };
-    case "EDIT_USER":
-      return {
-        ...state,
-        user: action.payload,
-        loading: false,
-      };
+
     case "ADD_USER":
       return {
         ...state,
